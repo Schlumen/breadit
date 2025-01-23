@@ -14,17 +14,17 @@ import { toast } from "@/hooks/use-toast";
 
 interface PostVoteClientProps {
   postId: string;
-  initailVotesAmt: number;
+  initialVotesAmt: number;
   initialVote?: VoteType | null;
 }
 
 const PostVoteClient: FC<PostVoteClientProps> = ({
   postId,
-  initailVotesAmt,
+  initialVotesAmt,
   initialVote,
 }) => {
   const { loginToast } = useCustomToast();
-  const [votesAmt, setVotesAmt] = useState<number>(initailVotesAmt);
+  const [votesAmt, setVotesAmt] = useState<number>(initialVotesAmt);
   const [currentVote, setCurrentVote] = useState(initialVote);
   const prevVote = usePrevious(currentVote);
 
@@ -74,7 +74,7 @@ const PostVoteClient: FC<PostVoteClientProps> = ({
     },
   });
   return (
-    <div className="flex flex-col gap-0 pr-6 sm:w-20 pb-0">
+    <div className="flex flex-col gap-0 pr-6 sm:w-20 pb-4 sm:pb-0">
       <Button
         onClick={() => vote("UP")}
         size="sm"
